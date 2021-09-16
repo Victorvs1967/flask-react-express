@@ -1,0 +1,10 @@
+.git
+.logs
+.python_cache
+backend
+worker
+tools
+node_modules
+npm_debug
+tests
+venv
