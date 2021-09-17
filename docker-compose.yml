@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   mongo:
-    image: "mongo:latest"
+    image: "mongo"
   redis:
     image: "redis:alpine"
   backend:
@@ -16,7 +16,7 @@ services:
     ports: 
       - "40001:40001"
     volumes: 
-      - ./:code
+      - .:/code
   frontend:
     build: 
       context: .
@@ -30,7 +30,7 @@ services:
     ports:
       - "40002:40002"
     volumes:
-      - ./frontend/app/src
+      - ./frontend:/app/src
   worker:
     build:
       context: .
