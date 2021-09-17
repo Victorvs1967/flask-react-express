@@ -1,6 +1,6 @@
 # frontend/Dockerfile
 
-FROM node:carbon
+FROM node:latest
 
 WORKDIR /app
 
@@ -9,7 +9,7 @@ RUN npm install
 
 ENV PATH /app.node_modules/.bin:$PATH
 
-ADD frontend /app/stc
+ADD frontend /app/src
 WORKDIR /app/src
 
 RUN npm run build

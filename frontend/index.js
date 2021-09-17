@@ -1,9 +1,11 @@
 // frontend/index.js
 
-const express = require("express");
+import express from 'express';
+import template from './src/template';
 
-app = express();
+const app = express();
+
+app.use('/dist', express.static('../dist'));
+app.get("*", (req, res) => res.send(template("Flask React App")));
 
 app.listen(process.env.APP_FRONTEND_PORT);
-
-app.get("*", (req, res) => res.send("<h1>Hello, World!</h1>"));

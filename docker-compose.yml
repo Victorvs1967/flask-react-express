@@ -16,7 +16,7 @@ services:
     ports: 
       - "40001:40001"
     volumes: 
-      - .:/code
+      - ./backend:/code
   frontend:
     build: 
       context: .
@@ -41,4 +41,4 @@ services:
       - mongo
       - redis
     volumes:
-      - .:/code
+      - ./backend:/code
