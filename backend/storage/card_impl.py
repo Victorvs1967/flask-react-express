@@ -1,11 +1,14 @@
+# backend/storage/card_impl.py
+
 from typing import Iterable
 
 import bson
 import bson.errors
+
 from pymongo.collection import Collection
 from pymongo.database import Database
 
-from backend.storage.card import Card, CardDAO, CardNotFound
+from storage.card import Card, CardDAO, CardNotFound
 
 
 class MongoCardDAO(CardDAO):
@@ -15,7 +18,7 @@ class MongoCardDAO(CardDAO):
     self.collection.create_index('slug', unique=True)
 
   @property
-  def to_collection(self) -> Collection:
+  def collection(self) -> Collection:
     return self.mongo_database['cards']
 
   @classmethod
@@ -42,7 +45,7 @@ class MongoCardDAO(CardDAO):
     self.collection.update_one({'_id': card_id}, {'$set': self.to_bson(card)})
     return card
 
-  def get_all(self) -> Iterable(Card):
+  def get_all(self) -> Iterable[Card]:
     for document in self.collection.find():
       yield self.from_bson(document)
 

@@ -32,7 +32,7 @@ class CardDAO(object, metaclass=abc.ABCMeta):
     pass
 
   @abc.abstractmethod
-  def get_bySlug(self, slug: str) -> Card:
+  def get_by_slug(self, slug: str) -> Card:
     pass
 
 class CardNotFound(Exception):

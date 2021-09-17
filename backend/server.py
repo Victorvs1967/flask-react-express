@@ -2,23 +2,23 @@
 
 import os.path
 
-from flask import Flask
-from flask_cors import CORS
+import flask
+import flask_cors
 
-from backend.storage.card import CardNotFound
-from backend.wiring import Wiring
+from storage.card import CardNotFound
+from wiring import Wiring
 
 
 env = os.environ.get('APP_ENV', 'dev')
 print(f'Strting application in {env} mode')
 
-class BackApp(Flask):
+class BackApp(flask.Flask):
 
   def __init__(self, *args, **kwargs):
     super().__init__(*args, **kwargs)
-    CORS(self)
-    self.wiring = wiring(env)
-    self.route('api/v1/card/<card_id_or_slug>')(self.card)
+    flask_cors.CORS(self)
+    self.wiring = Wiring(env)
+    self.route('/api/v1/card/<card_id_or_slug>')(self.card)
 
   def card(self, card_id_or_slug):
     try:
@@ -30,8 +30,9 @@ class BackApp(Flask):
         return flask.abort(404)
     return flask.jsonify({
       k: v
-      for k, v in card.__dict__.items() if v is not None
+      for k, v in card.__dict__.items()
+      if v is not None
     })
 
 app = BackApp('back-app')
-app.config.from_object(f'backend.{env}_setting')
+app.config.from_object(f'{env}_setting')

@@ -1,7 +1,7 @@
 # tools/add_test_content.py
 
-from backend.storage.card import Card
-from backend.wiring import Wiring
+from storage.card import Card
+from wiring import Wiring
 
 
 wiring = Wiring()

@@ -5,9 +5,9 @@ import os
 from pymongo import MongoClient
 from pymongo.database import Database
 
-import backend.dev_setting
-from backend.storage.card import CardDAO
-from backend.storage.card_impl import MongoCardDAO
+import dev_setting
+from storage.card import CardDAO
+from storage.card_impl import MongoCardDAO
 
 
 class Wiring(object):
@@ -16,7 +16,7 @@ class Wiring(object):
     if env is None:
       env = os.environ.get('APP_ENV', 'dev')
     self.settings = {
-      'dev': backend.dev_setting,
+      'dev': dev_setting,
       
     }[env]
 
@@ -25,4 +25,3 @@ class Wiring(object):
       port=self.settings.MONGO_PORT)
     self.mongo_database: Database = self.mongo_client[self.settings.MONGO_DATABASE]
     self.card_dao: CardDAO = MongoCardDAO(self.mongo_database)
-    
