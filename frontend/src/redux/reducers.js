@@ -2,7 +2,7 @@
 
 import { START_FETCHING_CARD, FINISH_FETCHING_CARD } from './actions';
 
-const root = (state = {}, action) => {
+const root = (state, action) => {
   switch (action.type) {
     case START_FETCHING_CARD:
       return {

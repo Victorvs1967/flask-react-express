@@ -7,6 +7,7 @@ import CardPage from './cardPage';
 
 class App extends Component {
   render() {
+
     const { pageType } = this.props;
     return (
       <div>
@@ -16,7 +17,7 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { page } = state;
   const { type } = page;
   return {

@@ -3,11 +3,11 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import rootReducer from './reducers';
+import root from './reducers';
 
 const configureStore = initialState => {
   return createStore(
-    rootReducer,
+    root,
     initialState,
     composeWithDevTools(applyMiddleware(thunkMiddleware)),
   );

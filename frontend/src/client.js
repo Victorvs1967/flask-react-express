@@ -13,7 +13,7 @@ let initialState = {
   }
 };
 
-const m = /^\/card\/([^\/]+)$/.exec(Location.pathname);
+const m = /^\/card\/([^\/]+)$/.exec(location.pathname);
 if (m !== null) {
   initialState = {
     page: {

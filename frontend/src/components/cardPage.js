@@ -8,7 +8,7 @@ import Card from './card';
 
 class CardPage extends Component {
 
-  componentWillMount() {
+  constructor() {
     this.props.dispatch(fetchCardIfNeeded());
   }
 
