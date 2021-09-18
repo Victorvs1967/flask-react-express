@@ -13,7 +13,7 @@ class Card extends Component {
         <h1>{ name }</h1>
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
-    )
+    );
   }
 }
 

@@ -9,7 +9,7 @@ import configureStore from './redux/configureStore';
 
 let initialState = {
   page: {
-    type: 'home'
+    type: "home"
   }
 };
 
@@ -17,16 +17,16 @@ const m = /^\/card\/([^\/]+)$/.exec(Location.pathname);
 if (m !== null) {
   initialState = {
     page: {
-      type: 'card',
+      type: "card",
       cardSlug: m[1]
     },
   }
 }
 
-const store = configureStore();
+const store = configureStore(initialState);
 
 render(
-  <Provider store={store}>
+  <Provider store={ store }>
     <App/>
   </Provider>, 
   document.querySelector('#app')

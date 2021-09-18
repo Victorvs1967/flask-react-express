@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import moduleName from './cardPage';
+import CardPage from './cardPage';
 
 class App extends Component {
   render() {
@@ -16,7 +16,7 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const { page } = state;
   const { type } = page;
   return {

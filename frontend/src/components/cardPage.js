@@ -9,14 +9,15 @@ import Card from './card';
 class CardPage extends Component {
 
   componentWillMount() {
-    this.props.dispatch(fetchCardIfNeeded())
+    this.props.dispatch(fetchCardIfNeeded());
   }
+
   render() {
     const { isFetching, cardData } = this.props;
     return (
       <div>
         { isFetching && <h2>Loading...</h2> }
-        { cardData && <Card {...cardData}/> }
+        { cardData && <Card { ...cardData }/> }
       </div>
     );
   }

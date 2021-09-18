@@ -3,7 +3,7 @@
 import functools
 from typing import Callable
 
-from backend.wiring import Wiring
+from wiring import Wiring
 
 
 def task(func: Callable):
