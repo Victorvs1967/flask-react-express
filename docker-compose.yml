@@ -34,7 +34,7 @@ services:
   worker:
     build:
       context: .
-      dockerfile: ./worker/Dockerfile
+      dockerfile: ./backend/worker/Dockerfile
     environment:
       - APP_ENV=dev
     depends_on:
