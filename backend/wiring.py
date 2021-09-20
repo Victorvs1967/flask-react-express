@@ -20,7 +20,6 @@ class Wiring(object):
       env = os.environ.get('APP_ENV', 'dev')
     self.settings = {
       'dev': dev_setting,
-      
     }[env]
 
     self.mongo_client: MongoClient = MongoClient(

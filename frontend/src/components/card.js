@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Card = ({ name, markdown }) => {
+const Card = ({ name, html }) => {
 
   return (
     <div>
       <h1>{ name }</h1>
-      <div dangerouslySetInnerHTML={{ __html: markdown }} />
+      <div dangerouslySetInnerHTML={{ __html: html }} />
     </div>
   );
 };

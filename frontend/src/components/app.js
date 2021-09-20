@@ -14,8 +14,7 @@ const App = ({ pageType }) => {
   );
 }
 
-const mapStateToProps = state => {
-  const { page } = state;
+const mapStateToProps = ({ page }) => {
   const { type } = page;
   return {
     pageType: type

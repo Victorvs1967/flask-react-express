@@ -8,9 +8,7 @@ import Card from './card';
 
 const CardPage = ({ isFetching, cardData, dispatch }) => {
 
-  useEffect(() => {
-    dispatch(fetchCardIfNeeded());
-  }, []);
+  useEffect(() => dispatch(fetchCardIfNeeded()), []);
 
   return (
     <div>
@@ -20,8 +18,7 @@ const CardPage = ({ isFetching, cardData, dispatch }) => {
   );
 };
 
-const mapStateToProps = state => {
-  const { page } = state;
+const mapStateToProps = ({ page }) => {
   return page;
 } 
 
