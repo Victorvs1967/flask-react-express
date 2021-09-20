@@ -1,20 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Card extends Component {
+const Card = ({ name, markdown }) => {
 
-  componentDidMount() {
-    document.title = this.props.name;
-  }
-
-  render() {
-    const { name, html } = this.props;
-    return (
-      <div>
-        <h1>{ name }</h1>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <h1>{ name }</h1>
+      <div dangerouslySetInnerHTML={{ __html: markdown }} />
+    </div>
+  );
+};
 
 export default Card;

@@ -27,7 +27,7 @@ const store = configureStore(initialState);
 
 render(
   <Provider store={ store }>
-    <App/>
+    <App />
   </Provider>, 
   document.querySelector('#app')
 );

@@ -1,20 +1,17 @@
 // frontend/src/components/app.js
 
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import CardPage from './cardPage';
 
-class App extends Component {
-  render() {
-
-    const { pageType } = this.props;
-    return (
-      <div>
-        { pageType === 'card' && <CardPage/> }
-      </div>
-    );
-  }
+const App = ({ pageType }) => {
+  
+  return (
+    <div>
+      { pageType === 'card' && <CardPage/> }
+    </div>
+  );
 }
 
 const mapStateToProps = state => {
